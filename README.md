@@ -272,15 +272,29 @@ Image processing algorithm capable of:
 
 # 🔌 Circuit Diagram
 
-*(Add your circuit diagram explanation here)*
+<table>
+<tr>
+<td width="50%" valign="middle" align="center" style="padding:10px;">
 
-Explain components such as:
+<img src="circuit/droneCircuitDiagram.jpeg" alt="Circuit Diagram" 
+     style="width:100%; height:400px; object-fit:contain; display:block; margin:auto;" />
 
-* Flight controller connections
-* Motor and ESC wiring
-* Power distribution
-* Raspberry Pi / camera integration
-* Sprayer control system
+</td>
+<td width="50%" valign="top" style="padding:10px;">
+
+### Circuit Explanation
+
+This circuit integrates the key hardware components necessary for the agricultural drone system:
+
+- **Flight Controller Connections:** Manages drone stability and flight control, connected to motors and sensors.
+- **Motor and ESC Wiring:** Brushless motors connected through Electronic Speed Controllers (ESCs) for precise speed control.
+- **Power Distribution:** Centralized battery supply providing regulated power to all components including motors, controllers, and peripherals.
+- **Raspberry Pi / Camera Integration:** Raspberry Pi serves as the processing unit, interfaced with the camera module for capturing aerial images.
+- **Sprayer Control System:** Electronics controlling the spraying mechanism, triggered by the crop detection algorithm to release fertilizer or pesticides accurately.
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -308,7 +322,7 @@ This workflow allows the system to **detect crop issues and respond automaticall
 
 | Name               | Role                            | Contribution                                                         |
 | ------------------ | ------------------------------- | -------------------------------------------------------------------- |
-| **Divyanka Patil** | Team Leader                     | Project coordination, planning, UI/UX Designs, core flight logic     |                   
+| **Divyanka Patil** | Team Leader                     | Project coordination, planning, UI/UX designs, core flight logic     |                   
 | **Vedant Garud**   | Software & Hardware Development | Android app development, drone integration, crop detection algorithm |
 | **Amruta Sarwade** | Research & Testing              | Literature research and testing modules                              |
 | **Avadhut Patil**  | Hardware Support                | Drone assembly and component testing                                 |
