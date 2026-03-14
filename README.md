@@ -251,7 +251,7 @@ Image processing algorithm capable of:
 
 <tr>
 <td align="center">
-<img src="algo/test2.jpeg" height="350">
+<img src="algo/test1.jpg" height="350">
 </td>
 
 <td align="center">
