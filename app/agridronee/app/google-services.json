@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:46373966001:android:f35c4cb32e305f58701290",
+        "mobilesdk_app_id": "add your own app ID",
         "android_client_info": {
           "package_name": "com.example.agridronee"
         }
