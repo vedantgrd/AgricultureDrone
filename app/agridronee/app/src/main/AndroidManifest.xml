@@ -28,7 +28,7 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAmFjcLnzIGKpxtE1KmVrwIw2iMih3UJiQ" />
+            android:value="XXX" /> <!-- add your own api -->
 
         <!-- ✅ LOGIN SCREEN (App Entry) -->
         <activity android:name=".LoginActivity"
