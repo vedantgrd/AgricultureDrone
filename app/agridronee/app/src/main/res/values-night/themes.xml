@@ -1,0 +1,21 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Agridronee" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- ✅ Primary Colors -->
+        <item name="colorPrimary">@color/deepGreen</item>
+        <item name="colorPrimaryVariant">@color/darkGray</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- ✅ Background Fix -->
+        <item name="android:windowBackground">@color/black</item> <!-- ✅ Use windowBackground -->
+        <item name="android:colorBackground">@color/black</item> <!-- ✅ FIX: Use android:colorBackground -->
+        <item name="colorOnBackground">@color/white</item>
+
+        <!-- ✅ Text Colors -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/lightGray</item>
+
+        <!-- ✅ Fix UI Elements -->
+        <item name="android:statusBarColor">@color/darkGray</item>
+        <item name="android:navigationBarColor">@color/darkGray</item>
+    </style>
+</resources>

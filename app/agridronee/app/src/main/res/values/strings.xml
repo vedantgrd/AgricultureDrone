@@ -1,0 +1,59 @@
+<resources>
+    <string name="header_background">Header Background</string>
+    <string name="battery_status">Battery Status</string>
+    <string name="signal_status">Signal Status</string>
+    <string name="drone_status">Drone Status</string>
+    <string name="notifications">Notifications</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="controls">Controls</string>
+    <string name="analysis">Analysis</string>
+    <string name="settings">Settings</string>
+    <string name="weather_icon">Weather Icon</string>
+    <string name="humidity">Humidity</string>
+    <string name="wind">Wind</string>
+    <string name="visibility">Visibility</string>
+    <string name="quick_actions">Quick Actions</string>
+    <string name="flight_control">Flight Control</string>
+    <string name="field_survey">Field Survey</string>
+    <string name="crop_health">Crop Health</string>
+    <string name="pesticide_spray">Pesticide Spray</string>
+    <string name="field_map">Field Map</string>
+    <string name="drone_position">Drone Position</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="my_location">My Location</string>
+    <string name="current_location">Current Location</string>
+    <string name="status_updates">Status Updates</string>
+    <string name="drone_battery">Drone Battery</string>
+    <string name="last_flight">Last Flight</string>
+    <string name="maintenance_alert">Maintenance Alert</string>
+    <string name="recent_analysis">Recent Analysis</string>
+    <string name="upcoming_schedule">Upcoming Schedule</string>
+    <string name="scheduled_field_survey">Scheduled Field Survey</string>
+    <string name="pesticide_application">Pesticide Application</string>
+    <string name="view">View</string>
+    <string name="crop_health_summary">Crop Health Summary</string>
+    <string name="healthy">Healthy</string>
+    <string name="stressed">Stressed</string>
+    <string name="damaged">Damaged</string>
+    <string name="view_full_report">View Full Report</string>
+    <string name="start_mission">Start Mission</string>
+    <!-- Add these to your existing strings.xml file -->
+    <string-array name="issue_categories">
+        <item>App Performance</item>
+        <item>Drone Control</item>
+        <item>Map Issues</item>
+        <item>Connectivity</item>
+        <item>Camera/Imaging</item>
+        <item>Others</item>
+    </string-array>
+
+    <!-- Assuming you need this drawable for the EditText background -->
+    <drawable name="edit_text_background">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android">
+            <solid android:color="#FFFFFF" />
+            <stroke android:width="1dp" android:color="#CCCCCC" />
+            <corners android:radius="4dp" />
+        </shape>
+    </drawable>
+</resources>

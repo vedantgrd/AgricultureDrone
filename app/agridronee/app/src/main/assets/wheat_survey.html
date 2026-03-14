@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wheat Field Drone Report – North Field</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: #f9fafb;
+          margin: 0;
+          padding: 0;
+          color: #2d3748;
+          line-height: 1.6;
+        }
+
+        .container {
+          padding: 20px;
+          max-width: 700px;
+          margin: auto;
+        }
+
+        h1, h2 {
+          color: #2f855a;
+        }
+
+        .chart-container {
+          background: #ffffff;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+          margin: 24px 0;
+        }
+
+        canvas {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .section {
+          margin: 30px 0;
+        }
+
+        .section-title {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #2d3748;
+        }
+
+        .report-text {
+          background: #ffffff;
+          padding: 15px 20px;
+          border-radius: 10px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+          margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 15px;
+          }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🌾 Wheat Field Drone Report</h1>
+
+    <!-- Section 1: Executive Summary -->
+    <div class="section">
+        <h2 class="section-title">Executive Summary</h2>
+        <div class="report-text">
+            This report details a drone-assisted crop analysis conducted on <strong>March 15, 2024</strong> over the <strong>North Field (25 acres)</strong>. The survey focused on identifying crop health distribution, detecting potential pest threats, and analyzing soil moisture conditions. Overall, the field shows <strong>good crop health</strong>, with balanced moisture levels and a <strong>low risk of pest activity</strong>.
+        </div>
+    </div>
+
+    <!-- Chart: Overall Wheat Health -->
+    <div class="chart-container">
+        <h2 class="section-title">Crop Health Overview</h2>
+        <canvas id="wheatHealthChart"></canvas>
+    </div>
+
+    <!-- Section 2: Health Analysis -->
+    <div class="section">
+        <h2 class="section-title">Health Analysis</h2>
+        <div class="report-text">
+            The wheat crop in the North Field is thriving, with <strong>70% rated as healthy</strong>. This is attributed to well-managed fertilization and consistent rainfall during the early growth period. <strong>20%</strong> of the crop exhibits minor stress symptoms, likely due to slight nutrient variations and earlier cold exposure. Only <strong>10%</strong> shows signs of poor growth, mainly located near the western edge where drainage and water access are limited.
+        </div>
+    </div>
+
+    <!-- Chart: Disease Detection -->
+    <div class="chart-container">
+        <h2 class="section-title">Disease & Pest Detection</h2>
+        <canvas id="diseaseChart"></canvas>
+    </div>
+
+    <!-- Section 3: Disease Report -->
+    <div class="section">
+        <h2 class="section-title">Pest & Disease Risk</h2>
+        <div class="report-text">
+            The drone scan did not detect any major disease clusters. <strong>Fungal activity was negligible</strong>, affecting under 10% of the field in shaded areas. Pest risk is currently low, though a few aphid hotspots were observed in denser crop zones. No action is required at this time, but biweekly monitoring is recommended to prevent escalation.
+        </div>
+    </div>
+
+    <!-- Chart: Moisture Levels -->
+    <div class="chart-container">
+        <h2 class="section-title">Soil Moisture Levels</h2>
+        <canvas id="moistureChart"></canvas>
+    </div>
+
+    <!-- Section 4: Irrigation and Moisture -->
+    <div class="section">
+        <h2 class="section-title">Soil Moisture Report</h2>
+        <div class="report-text">
+            The average soil moisture across the field was measured at <strong>65%</strong>, indicating a well-balanced hydration state. The eastern section retains moisture efficiently due to natural soil compaction, while a few dry patches in the central strip were identified—possibly due to uneven irrigation pressure. There are no signs of overwatering or waterlogging.
+        </div>
+    </div>
+
+    <!-- Chart: Growth Stages -->
+    <div class="chart-container">
+        <h2 class="section-title">Wheat Growth Stages</h2>
+        <canvas id="growthChart"></canvas>
+    </div>
+
+    <!-- Section 5: Growth Stage Insights -->
+    <div class="section">
+        <h2 class="section-title">Crop Development</h2>
+        <div class="report-text">
+            Most of the crop is in the <strong>tillering stage (55%)</strong>, showing uniformity and vigor. About <strong>30%</strong> has entered the <strong>stem elongation stage</strong>, and a small percentage (15%) is lagging slightly. These areas should be monitored for potential seedling issues or localized nutrient gaps. The overall maturity forecast is on track for a late-May harvest.
+        </div>
+    </div>
+
+    <!-- Section 6: Recommendations -->
+    <div class="section">
+        <h2 class="section-title">Recommendations</h2>
+        <div class="report-text">
+            Maintain current irrigation cycle with minor adjustments in central strip.<br>
+            Begin foliar application in lagging zones to promote uniform growth.<br>
+            Conduct pest scouting in dense canopy areas.<br>
+            Schedule a follow-up drone scan by the end of March.<br>
+            No fungicide needed unless fungal activity increases.
+        </div>
+    </div>
+
+    <!-- Section 7: Conclusion -->
+    <div class="section">
+        <h2 class="section-title">Conclusion</h2>
+        <div class="report-text">
+            The North Field shows strong crop potential, with minimal pest or disease pressure and optimal moisture levels. Regular monitoring and light agronomic adjustments will help sustain the current trajectory and ensure a healthy wheat yield this season.
+        </div>
+    </div>
+</div>
+
+<!-- Charts Script -->
+<script>
+    new Chart(document.getElementById('wheatHealthChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Healthy', 'Moderate Stress', 'Unhealthy'],
+        datasets: [{
+          data: [70, 20, 10],
+          backgroundColor: ['#48bb78', '#ecc94b', '#f56565']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('diseaseChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['No Disease', 'Fungal', 'Pest Risk'],
+        datasets: [{
+          data: [75, 10, 15],
+          backgroundColor: ['#68d391', '#ed8936', '#63b3ed']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('moistureChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Optimal (65%)', 'Dry Areas', 'Overwatered'],
+        datasets: [{
+          data: [65, 20, 15],
+          backgroundColor: ['#4299e1', '#ed8936', '#9f7aea']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('growthChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Tillering', 'Stem Elongation', 'Lagging Growth'],
+        datasets: [{
+          data: [55, 30, 15],
+          backgroundColor: ['#f6ad55', '#38a169', '#e53e3e']
+        }]
+      }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Corn Field Drone Report – Central Field</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: #f9fafb;
+          margin: 0;
+          padding: 0;
+          color: #2d3748;
+          line-height: 1.6;
+        }
+
+        .container {
+          padding: 20px;
+          max-width: 700px;
+          margin: auto;
+        }
+
+        h1, h2 {
+          color: #2f855a;
+        }
+
+        .chart-container {
+          background: #ffffff;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+          margin: 24px 0;
+        }
+
+        canvas {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .section {
+          margin: 30px 0;
+        }
+
+        .section-title {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #2d3748;
+        }
+
+        .report-text {
+          background: #ffffff;
+          padding: 15px 20px;
+          border-radius: 10px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+          margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 15px;
+          }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🌽 Corn Field Drone Report</h1>
+
+    <!-- Section 1: Executive Summary -->
+    <div class="section">
+        <h2 class="section-title">Executive Summary</h2>
+        <div class="report-text">
+            This drone survey was conducted on <strong>March 10, 2024</strong> over the <strong>Central Field (40 acres)</strong>, planted with corn. The primary objective was to assess vegetation health, pest presence, and soil moisture distribution. The field currently exhibits <strong>fair overall health</strong>, with moderate pest activity and signs of early water stress.
+        </div>
+    </div>
+
+    <!-- Chart: Overall Corn Health -->
+    <div class="chart-container">
+        <h2 class="section-title">Crop Health Overview</h2>
+        <canvas id="cornHealthChart"></canvas>
+    </div>
+
+    <!-- Section 2: Health Analysis -->
+    <div class="section">
+        <h2 class="section-title">Health Analysis</h2>
+        <div class="report-text">
+            The Central Field showed <strong>55% healthy corn</strong>, with vibrant leaf color and strong NDVI signatures. <strong>30% of the field</strong> showed moderate stress, including uneven canopy height and early signs of nutrient deficiency. The remaining <strong>15%</strong> was categorized as poor health, primarily in the southern region, likely due to poor drainage and compacted soil layers.
+        </div>
+    </div>
+
+    <!-- Chart: Disease Detection -->
+    <div class="chart-container">
+        <h2 class="section-title">Pest & Disease Detection</h2>
+        <canvas id="diseaseChart"></canvas>
+    </div>
+
+    <!-- Section 3: Disease Report -->
+    <div class="section">
+        <h2 class="section-title">Pest Activity & Disease</h2>
+        <div class="report-text">
+            The drone detected <strong>moderate pest activity</strong>—especially along the northern tree line where aphids and early-stage armyworms were identified. <strong>Fungal hotspots</strong> were visible in 10% of the field, mostly in moisture-retentive areas. Preventive spraying is advised within the next 5–7 days to avoid escalation.
+        </div>
+    </div>
+
+    <!-- Chart: Moisture Levels -->
+    <div class="chart-container">
+        <h2 class="section-title">Soil Moisture Levels</h2>
+        <canvas id="moistureChart"></canvas>
+    </div>
+
+    <!-- Section 4: Irrigation and Moisture -->
+    <div class="section">
+        <h2 class="section-title">Moisture & Irrigation</h2>
+        <div class="report-text">
+            Average soil moisture across the Central Field was measured at <strong>55%</strong>, which is slightly below ideal for early corn development. The southwestern zone is significantly drier, likely due to blocked irrigation nozzles. No signs of over-irrigation were detected. Prompt irrigation balancing is necessary to avoid crop stress during vegetative stages.
+        </div>
+    </div>
+
+    <!-- Chart: Growth Stages -->
+    <div class="chart-container">
+        <h2 class="section-title">Corn Growth Stages</h2>
+        <canvas id="growthChart"></canvas>
+    </div>
+
+    <!-- Section 5: Growth Stage Insights -->
+    <div class="section">
+        <h2 class="section-title">Growth & Development</h2>
+        <div class="report-text">
+            The field has a mixed growth stage distribution. <strong>50% of the corn</strong> is in the V3–V5 stage, showing consistent leaf development. <strong>35%</strong> is in earlier stages (V1–V2), often in drier or stressed regions. The remaining <strong>15%</strong> is lagging behind, mostly in shaded or compacted soil areas. Uniformity can be improved with localized inputs.
+        </div>
+    </div>
+
+    <!-- Section 6: Recommendations -->
+    <div class="section">
+        <h2 class="section-title">Recommendations</h2>
+        <div class="report-text">
+            Apply insecticide in high-risk aphid zones (north boundary).<br>
+            Flush and calibrate irrigation in the southwest sector.<br>
+            Add foliar nitrogen spray in lagging patches.<br>
+            Reassess pest pressure in 7 days with follow-up drone scan.<br>
+            Improve aeration in compacted zones using shallow tillage.
+        </div>
+    </div>
+
+    <!-- Section 7: Conclusion -->
+    <div class="section">
+        <h2 class="section-title">Conclusion</h2>
+        <div class="report-text">
+            The Central Field corn crop is progressing under fair conditions. Moisture stress and pest activity are manageable with immediate actions. Continued surveillance and mid-season nutrient boosts will help stabilize growth and improve overall field uniformity heading into the reproductive phase.
+        </div>
+    </div>
+</div>
+
+<!-- Chart Scripts -->
+<script>
+    new Chart(document.getElementById('cornHealthChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Healthy', 'Moderate Stress', 'Unhealthy'],
+        datasets: [{
+          data: [55, 30, 15],
+          backgroundColor: ['#48bb78', '#ecc94b', '#f56565']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('diseaseChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['No Disease', 'Fungal', 'Pest Activity'],
+        datasets: [{
+          data: [65, 10, 25],
+          backgroundColor: ['#68d391', '#ed8936', '#63b3ed']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('moistureChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Optimal (55%)', 'Dry Zones', 'Overwatered'],
+        datasets: [{
+          data: [55, 30, 15],
+          backgroundColor: ['#4299e1', '#ed8936', '#9f7aea']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('growthChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['V3–V5 Stage', 'V1–V2 Stage', 'Lagging'],
+        datasets: [{
+          data: [50, 35, 15],
+          backgroundColor: ['#f6ad55', '#38a169', '#e53e3e']
+        }]
+      }
+    });
+</script>
+</body>
+</html>

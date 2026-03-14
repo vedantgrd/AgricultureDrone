@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "46373966001",
+    "project_id": "drone-483e2",
+    "storage_bucket": "drone-483e2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46373966001:android:f35c4cb32e305f58701290",
+        "android_client_info": {
+          "package_name": "com.example.agridronee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwR0oqRg4EslBzY5SYEcwDWUqkS9QEwKo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

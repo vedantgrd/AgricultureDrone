@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report an Issue</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2C3E50;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1rem;
+            color: #7F8C8D;
+            margin-top: 10px;
+            display: block;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #BDC3C7;
+            border-radius: 8px;
+            resize: vertical;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #BDC3C7;
+            border-radius: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        .checkbox-group {
+            margin-top: 15px;
+            text-align: left;
+            color: #7F8C8D;
+        }
+
+        .checkbox-group label {
+            font-size: 1rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        button {
+            display: inline-block;
+            background-color: #1ABC9C;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #16A085;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Report an Issue</h2>
+    <form id="issueForm" onsubmit="submitIssue(event)">
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="category">Issue Category:</label>
+        <select id="category" name="category">
+            <option value="App Crash">App Crash</option>
+            <option value="Drone Connection">Drone Connection</option>
+            <option value="Flight Control">Flight Control</option>
+            <option value="User Interface">User Interface</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="includeLogs" name="includeLogs" checked> Include system logs</label>
+            <label><input type="checkbox" id="includeScreenshot" name="includeScreenshot"> Include screenshot</label>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script>
+    function submitIssue(event) {
+        event.preventDefault();
+        const form = document.getElementById('issueForm');
+        const formData = new FormData(form);
+        const data = {
+            description: formData.get('description'),
+            category: formData.get('category'),
+            includeLogs: formData.get('includeLogs') === 'on',
+            includeScreenshot: formData.get('includeScreenshot') === 'on'
+        };
+
+        // Simulate submission (replace with actual API call)
+        console.log('Submitting:', data);
+        alert('Issue reported successfully!');
+        form.reset();
+    }
+</script>
+
+</body>
+</html>

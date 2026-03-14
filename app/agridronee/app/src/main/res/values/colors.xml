@@ -1,0 +1,40 @@
+<resources>
+    <color name="backgroundLight">#F5F7FA</color>
+    <color name="deepGreen">#2E7D32</color>
+    <color name="white">#FFFFFF</color>
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#757575</color>
+    <color name="accentColor">#0288D1</color>
+    <color name="lightGreen">#81C784</color>
+    <color name="softSkyBlue">#4FC3F7</color>
+    <color name="healthyGreen">#4CAF50</color>
+    <color name="warningAmber">#FFB300</color>
+    <color name="errorRed">#D32F2F</color>
+    <color name="dividerColor">#E0E0E0</color>
+    <color name="tab_icon_color">@android:color/darker_gray</color>
+    <color name="darkGray">#A9A9A9</color>
+    <color name="earthyBeige">#D9C8A3</color>
+    <color name="black">#000000</color>
+    <color name="lightGray">#D3D3D3</color>
+    <color name="mediumGray">#B0B5BD</color>
+    <color name="transparentWhite">#CCFFFFFF</color>
+    <color name="warningColor">#E9C46A</color>
+    <color name="alertColor">#E76F51</color>
+
+    <!-- Theme Colors - Nature-inspired -->
+
+    <color name="softGreen">#95D5B2</color>
+
+    <!-- Text Colors -->
+    <color name="textDark">#212529</color>
+    <color name="textMedium">#495057</color>
+    <color name="textLight">#F8F9FA</color>
+
+    <!-- Transparent Colors -->
+    <color name="transparentBlack">#80000000</color>
+
+    <!-- Navigation and UI -->
+    <color name="nav_item_color">#FFFFFF</color>
+    <color name="buttonColor">#1A759F</color> <!-- Matches the accent color -->
+    <color name="cardBackground">#F9F9F9</color>
+</resources>

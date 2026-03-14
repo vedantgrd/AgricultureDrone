@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drone Crop Health Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: #f4f7f9;
+          margin: 0;
+          padding: 0;
+          color: #333;
+          line-height: 1.6;
+        }
+
+        .container {
+          padding: 20px;
+          max-width: 700px;
+          margin: auto;
+        }
+
+        h1, h2 {
+          color: #2c7a7b;
+        }
+
+        .chart-container {
+          background: white;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+          margin: 24px 0;
+        }
+
+        canvas {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .section {
+          margin: 30px 0;
+        }
+
+        .section-title {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #444;
+        }
+
+        .report-text {
+          background: #ffffff;
+          padding: 15px 20px;
+          border-radius: 10px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+          margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+          .container {
+            padding: 15px;
+          }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🌾 Drone Crop Health Report</h1>
+
+    <!-- Section 1: Executive Summary -->
+    <div class="section">
+        <h2 class="section-title">Executive Summary</h2>
+        <div class="report-text">
+            This report provides a comprehensive analysis of crop health based on aerial drone imaging conducted on April 3rd, 2025. The survey covered over 120 acres of mixed agricultural land including wheat, corn, and soybean crops. This detailed examination highlights the health distribution of crops, disease prevalence, soil moisture conditions, and crop coverage patterns. The report aims to provide actionable insights to support precision agriculture and improve overall yield.
+        </div>
+    </div>
+
+    <!-- Chart: Overall Crop Health -->
+    <div class="chart-container">
+        <h2 class="section-title">Overall Crop Health</h2>
+        <canvas id="healthChart"></canvas>
+    </div>
+
+    <!-- Section 2: Crop Health Analysis -->
+    <div class="section">
+        <h2 class="section-title">Crop Health Analysis</h2>
+        <div class="report-text">
+            The health scan revealed that approximately 65% of the surveyed crops were categorized as healthy. 25% exhibited moderate stress, often attributed to early nutrient deficiencies or inconsistent watering. The remaining 10% were flagged as unhealthy, requiring immediate attention.
+            <br><br>
+            Areas with unhealthy crops primarily align with known irrigation issues, particularly in the northwest quadrant of the survey area. It is recommended that a follow-up soil test be conducted in this zone to validate the presence of nutrient imbalances or root rot.
+        </div>
+    </div>
+
+    <!-- Chart: Disease Detection -->
+    <div class="chart-container">
+        <h2 class="section-title">Disease Detection</h2>
+        <canvas id="diseaseChart"></canvas>
+    </div>
+
+    <!-- Section 3: Disease Report -->
+    <div class="section">
+        <h2 class="section-title">Disease Detection Insights</h2>
+        <div class="report-text">
+            Disease presence was minimal across the entire field. The most commonly observed infections were fungal, impacting 15% of the plants. These were detected using infrared analysis where foliage temperature and texture anomalies suggest possible mildew or leaf spot issues.
+            <br><br>
+            Less than 5% of crops showed signs of viral or bacterial diseases. A preventative fungicide treatment is advised to maintain healthy conditions and mitigate future risks.
+        </div>
+    </div>
+
+    <!-- Chart: Moisture Levels -->
+    <div class="chart-container">
+        <h2 class="section-title">Moisture Levels</h2>
+        <canvas id="moistureChart"></canvas>
+    </div>
+
+    <!-- Section 4: Irrigation and Moisture -->
+    <div class="section">
+        <h2 class="section-title">Irrigation Patterns and Soil Moisture</h2>
+        <div class="report-text">
+            Moisture levels across the field were predominantly optimal (55%). However, 30% of surveyed zones registered low moisture levels, especially in elevated terrain lacking sufficient irrigation coverage.
+            <br><br>
+            Overwatering was recorded in 15% of the area, most notably in the southern block where automated irrigation systems might be over-compensating. Adjustment of irrigation schedules and installing soil sensors can greatly improve water usage efficiency.
+        </div>
+    </div>
+
+    <!-- Chart: Crop Type Coverage -->
+    <div class="chart-container">
+        <h2 class="section-title">Crop Type Coverage</h2>
+        <canvas id="coverageChart"></canvas>
+    </div>
+
+    <!-- Section 5: Area Analysis -->
+    <div class="section">
+        <h2 class="section-title">Crop Distribution and Area Coverage</h2>
+        <div class="report-text">
+            The distribution of crops shows a predominance of wheat (40%), followed by corn (30%) and soybeans (20%). The remaining 10% includes rotational crops like mustard and cover crops.
+            <br><br>
+            These patterns align with the expected seasonal plan, and no anomalies in crop boundaries were detected. A slight encroachment of weed growth at the eastern boundary was noted, and manual weeding or herbicide treatment may be necessary.
+        </div>
+    </div>
+
+    <!-- Section 6: Recommendations -->
+    <div class="section">
+        <h2 class="section-title">Recommendations</h2>
+        <div class="report-text">
+            - Conduct targeted irrigation repairs in moisture-deficient zones.<br>
+            - Apply fungicide in infected regions to control early fungal growth.<br>
+            - Install smart soil sensors for real-time moisture monitoring.<br>
+            - Reassess fertilizer usage to improve moderate-health crop zones.<br>
+            - Schedule a follow-up drone scan within 3 weeks to monitor improvement.
+        </div>
+    </div>
+
+    <!-- Section 7: Conclusion -->
+    <div class="section">
+        <h2 class="section-title">Conclusion</h2>
+        <div class="report-text">
+            The drone scan has proven to be a valuable tool for assessing real-time crop conditions over large agricultural plots. With proper action on the insights gained, the overall yield and health outcomes can be significantly enhanced. Continuous monitoring, paired with sustainable farming practices, will ensure optimal productivity throughout the growing season.
+        </div>
+    </div>
+</div>
+
+<!-- Charts JS -->
+<script>
+    const healthChart = new Chart(document.getElementById('healthChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Healthy', 'Moderate', 'Unhealthy'],
+        datasets: [{
+          data: [65, 25, 10],
+          backgroundColor: ['#38a169', '#ecc94b', '#e53e3e']
+        }]
+      }
+    });
+
+    const diseaseChart = new Chart(document.getElementById('diseaseChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['No Disease', 'Fungal', 'Bacterial', 'Viral'],
+        datasets: [{
+          data: [70, 15, 10, 5],
+          backgroundColor: ['#68d391', '#f6ad55', '#63b3ed', '#ed64a6']
+        }]
+      }
+    });
+
+    const moistureChart = new Chart(document.getElementById('moistureChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Optimal', 'Dry', 'Overwatered'],
+        datasets: [{
+          data: [55, 30, 15],
+          backgroundColor: ['#4299e1', '#ed8936', '#9f7aea']
+        }]
+      }
+    });
+
+    const coverageChart = new Chart(document.getElementById('coverageChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Wheat', 'Corn', 'Soybean', 'Others'],
+        datasets: [{
+          data: [40, 30, 20, 10],
+          backgroundColor: ['#d69e2e', '#f6ad55', '#48bb78', '#a0aec0']
+        }]
+      }
+    });
+</script>
+</body>
+</html>
